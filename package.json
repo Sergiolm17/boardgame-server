@@ -1,0 +1,21 @@
+{
+  "name": "server2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node boardgame.js",
+    "test": "nodemon index.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^1.1.2",
+    "express": "^4.17.1",
+    "randomstring": "^1.1.5",
+    "shuffle-seed": "^1.1.6",
+    "socket.io": "^3.0.4",
+    "superagent": "^6.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

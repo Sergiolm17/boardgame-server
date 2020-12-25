@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      var RoomID = "";
+      var DisplayName = "";
+      function CreateRoom() {
+        const DisplayName = prompt("Please enter your DisplayName:");
+        socket.emit("createRoom", { DisplayName });
+      }
+      function JoinRoom() {
+        RoomID = prompt("Please enter your RoomID:");
+        DisplayName = prompt("Please enter your DisplayName:");
+        socket.emit("joinRoom", { RoomID, DisplayName });
+      }
+      function EventRoom() {
+        socket.emit("eventRoom", {
+          RoomID,
+          msg: {
+            position: 1,
+          },
+        });
+      }
+      socket.on("connect", function () {
+        console.log("Successfully connected!");
+        const sessionID = socket.id;
+        console.log(sessionID);
+      });
+      socket.on("roomJoined", (msg) => {
+        console.log("roomJoined", msg);
+        RoomID = msg.RoomID;
+        alert(msg.RoomID);
+      });
+      socket.on("playersUpdated", (msg) => {
+        console.log("playersUpdated", msg);
+      });
+      socket.on("roomBadId", (msg) => {
+        console.log("roomBadId", msg);
+      });
+      socket.on("eventRoom", (msg) => {
+        console.log("eventRoom", msg);
+      });
+    </script>
+  </head>
+  <body>
+    <button onclick="CreateRoom()">CreateRoom</button>
+    <button onclick="JoinRoom()">JoinRoom</button>
+    <button onclick="EventRoom()">eventRoom</button>
+  </body>
+</html>
