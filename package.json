@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.1.2",
+    "boardgame.io": "^0.42.2",
     "express": "^4.17.1",
     "randomstring": "^1.1.5",
     "shuffle-seed": "^1.1.6",
