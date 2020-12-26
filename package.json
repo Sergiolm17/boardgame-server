@@ -4,12 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node boardgame.js",
-    "test": "nodemon index.js"
+    "start": "node -r esm boardgame.js",
+    "test": "nodemon index.js",
+    "serve": "node -r esm src/boardgame.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.1.2",
     "boardgame.io": "^0.42.2",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "randomstring": "^1.1.5",
     "shuffle-seed": "^1.1.6",
